@@ -3,14 +3,15 @@ import Core from './Core';
 import defaultLocale from './Locale';
 import './styles.css';
 
-const Quiz = function ({
+function Quiz({
   quiz, shuffle, showDefaultResult, onComplete, customResultPage,
   showInstantFeedback, continueTillCorrect, revealAnswerOnSubmit,
   allowNavigation, onQuestionSubmit, disableSynopsis,
 }) {
   const [start, setStart] = useState(false);
   const [questions, setQuestions] = useState(quiz.questions);
-  const nrOfQuestions = (quiz.nrOfQuestions && quiz.nrOfQuestions < quiz.questions.length) ? quiz.nrOfQuestions : quiz.questions.length;
+  const nrOfQuestions = (quiz.nrOfQuestions && quiz.nrOfQuestions < quiz.questions.length)
+    ? quiz.nrOfQuestions : quiz.questions.length;
 
   const shuffleQuestions = useCallback((q) => {
     for (let i = q.length - 1; i > 0; i -= 1) {
@@ -111,21 +112,21 @@ const Quiz = function ({
   return (
     <div className="react-quiz-container">
       {!start
-          && (
+        && (
           <div>
             <h2>{quiz.quizTitle}</h2>
             <div>{appLocale.landingHeaderText.replace('<questionLength>', nrOfQuestions)}</div>
             {quiz.quizSynopsis
               && (
-              <div className="quiz-synopsis">
-                {quiz.quizSynopsis}
-              </div>
+                <div className="quiz-synopsis">
+                  {quiz.quizSynopsis}
+                </div>
               )}
             <div className="startQuizWrapper">
               <button onClick={() => setStart(true)} className="startQuizBtn btn">{appLocale.startQuizBtn}</button>
             </div>
           </div>
-          )}
+        )}
 
       {start && (
         <Core
@@ -143,6 +144,6 @@ const Quiz = function ({
       )}
     </div>
   );
-};
+}
 
 export default Quiz;

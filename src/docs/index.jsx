@@ -6,7 +6,7 @@ import quiz from './quiz';
 const container = document.getElementById('app');
 const root = createRoot(container);
 
-const App = function () {
+function App() {
   const [quizResult, setQuizResult] = useState();
 
   return (
@@ -18,10 +18,10 @@ const App = function () {
       onComplete={setQuizResult}
       onQuestionSubmit={(obj) => console.log('user question results:', obj)}
       disableSynopsis
-      // revealAnswerOnSubmit
-      // allowNavigation
+    // revealAnswerOnSubmit
+    // allowNavigation
     />
   );
-};
+}
 
 root.render(<App />);

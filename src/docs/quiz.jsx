@@ -4,9 +4,13 @@ const segment = {
   advanced: 'advanced',
 };
 
+const description = `Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. 
+Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. 
+Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim`;
+
 const quiz = {
   quizTitle: 'React Quiz Component Demo',
-  quizSynopsis: 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu, pretium quis, sem. Nulla consequat massa quis enim',
+  quizSynopsis: description,
   nrOfQuestions: '6',
   questions: [
     {
@@ -23,7 +27,7 @@ const quiz = {
       correctAnswer: '3',
       messageForCorrectAnswer: 'Correct answer. Good job.',
       messageForIncorrectAnswer: 'Incorrect answer. Please try again.',
-      explanation: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      explanation: description,
       point: '20',
       segment: segment.advanced,
     },
@@ -38,7 +42,7 @@ const quiz = {
       correctAnswer: '2',
       messageForCorrectAnswer: 'Correct answer. Good job.',
       messageForIncorrectAnswer: 'Incorrect answer. Please try again.',
-      explanation: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      explanation: description,
       point: '20',
       segment: segment.basic,
     },
@@ -53,7 +57,7 @@ const quiz = {
       correctAnswer: '2',
       messageForCorrectAnswer: 'Correct answer. Good job.',
       messageForIncorrectAnswer: 'Incorrect answer. Please try again.',
-      explanation: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      explanation: description,
       point: '10',
     },
     {
@@ -68,7 +72,7 @@ const quiz = {
       correctAnswer: '3',
       messageForCorrectAnswer: 'Correct answer. Good job.',
       messageForIncorrectAnswer: 'Incorrect answer. Please try again.',
-      explanation: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      explanation: description,
       point: '30',
       segment: segment.medium,
     },
@@ -85,7 +89,7 @@ const quiz = {
       correctAnswer: '1',
       messageForCorrectAnswer: 'Correct answer. Good job.',
       messageForIncorrectAnswer: 'Incorrect answer. Please try again.',
-      explanation: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      explanation: description,
       point: '20',
     },
     {
@@ -94,14 +98,15 @@ const quiz = {
       answerSelectionType: 'multiple',
       answers: [
         'React can be used on client and as well as server side too',
-        'Using React increases readability and makes maintainability easier. Component, Data patterns improves readability and thus makes it easier for manitaining larger apps',
+        'Using React increases readability and makes maintainability easier. Component',
+        'Data patterns improves readability and thus makes it easier for manitaining larger apps',
         'React components have lifecycle events that fall into State/Property Updates',
         'React can be used with any other framework (Backbone.js, Angular.js) as it is only a view layer',
       ],
       correctAnswer: [1, 2, 4],
       messageForCorrectAnswer: 'Correct answer. Good job.',
       messageForIncorrectAnswer: 'Incorrect answer. Please try again.',
-      explanation: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      explanation: description,
       point: '20',
     },
   ],

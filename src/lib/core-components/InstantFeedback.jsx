@@ -11,7 +11,7 @@ const renderMessageForIncorrectAnswer = (question) => {
   return question.messageForIncorrectAnswer || defaultMessage;
 };
 
-const InstantFeedback = function ({
+function InstantFeedback({
   showInstantFeedback, incorrectAnswer, correctAnswer, question, onQuestionSubmit, userAnswer,
 }) {
   useEffect(() => {
@@ -23,16 +23,16 @@ const InstantFeedback = function ({
   return (
     <>
       {incorrectAnswer && showInstantFeedback
-            && <div className="alert incorrect">{renderMessageForIncorrectAnswer(question)}</div>}
+        && <div className="alert incorrect">{renderMessageForIncorrectAnswer(question)}</div>}
       {correctAnswer && showInstantFeedback
-            && (
-            <div className="alert correct">
-              {renderMessageForCorrectAnswer(question)}
-              <Explanation question={question} isResultPage={false} />
-            </div>
-            )}
+        && (
+          <div className="alert correct">
+            {renderMessageForCorrectAnswer(question)}
+            <Explanation question={question} isResultPage={false} />
+          </div>
+        )}
     </>
   );
-};
+}
 
 export default InstantFeedback;

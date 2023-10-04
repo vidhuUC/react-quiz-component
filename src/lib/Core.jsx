@@ -6,7 +6,7 @@ import { checkAnswer, selectAnswer, rawMarkup } from './core-components/helpers'
 import InstantFeedback from './core-components/InstantFeedback';
 import Explanation from './core-components/Explanation';
 
-const Core = function ({
+function Core({
   questions, appLocale, showDefaultResult, onComplete, customResultPage,
   showInstantFeedback, continueTillCorrect, revealAnswerOnSubmit, allowNavigation,
   onQuestionSubmit,
@@ -51,7 +51,7 @@ const Core = function ({
       for (let i = 0; i < questions.length; i += 1) {
         let point = questions[i].point || 0;
         if (typeof point === 'string' || point instanceof String) {
-          point = parseInt(point);
+          point = parseInt(point, 10);
         }
 
         totalPointsTemp += point;
@@ -300,52 +300,52 @@ const Core = function ({
     <div className="questionWrapper">
       {!endQuiz
         && (
-        <div className="questionWrapperBody">
-          <div className="questionModal">
-            <InstantFeedback
-              question={question}
-              showInstantFeedback={showInstantFeedback}
-              correctAnswer={correctAnswer}
-              incorrectAnswer={incorrectAnswer}
-              onQuestionSubmit={onQuestionSubmit}
-              userAnswer={[...userInput].pop()}
-            />
+          <div className="questionWrapperBody">
+            <div className="questionModal">
+              <InstantFeedback
+                question={question}
+                showInstantFeedback={showInstantFeedback}
+                correctAnswer={correctAnswer}
+                incorrectAnswer={incorrectAnswer}
+                onQuestionSubmit={onQuestionSubmit}
+                userAnswer={[...userInput].pop()}
+              />
+            </div>
+            <div>
+              {appLocale.question}
+              {' '}
+              {currentQuestionIndex + 1}
+              :
+            </div>
+            <h3 dangerouslySetInnerHTML={rawMarkup(question && question.question)} />
+            {question && question.questionPic && <img src={question.questionPic} alt="image" />}
+            {question && renderTags(answerSelectionTypeState, question.correctAnswer.length, question.segment)}
+            {question && renderAnswers(question, buttons)}
+            {(showNextQuestionButton || allowNavigation)
+              && (
+                <div className="questionBtnContainer">
+                  {(allowNavigation && currentQuestionIndex > 0) && (
+                    <button
+                      onClick={() => nextQuestion(currentQuestionIndex - 2)}
+                      className="prevQuestionBtn btn"
+                      type="button"
+                    >
+                      {appLocale.prevQuestionBtn}
+                    </button>
+                  )}
+                  <button onClick={() => nextQuestion(currentQuestionIndex)} className="nextQuestionBtn btn" type="button">
+                    {appLocale.nextQuestionBtn}
+                  </button>
+                </div>
+              )}
           </div>
-          <div>
-            {appLocale.question}
-            {' '}
-            {currentQuestionIndex + 1}
-            :
-          </div>
-          <h3 dangerouslySetInnerHTML={rawMarkup(question && question.question)} />
-          {question && question.questionPic && <img src={question.questionPic} alt="image" />}
-          {question && renderTags(answerSelectionTypeState, question.correctAnswer.length, question.segment)}
-          {question && renderAnswers(question, buttons)}
-          {(showNextQuestionButton || allowNavigation)
-          && (
-          <div className="questionBtnContainer">
-            {(allowNavigation && currentQuestionIndex > 0) && (
-              <button
-                onClick={() => nextQuestion(currentQuestionIndex - 2)}
-                className="prevQuestionBtn btn"
-                type="button"
-              >
-                {appLocale.prevQuestionBtn}
-              </button>
-            )}
-            <button onClick={() => nextQuestion(currentQuestionIndex)} className="nextQuestionBtn btn" type="button">
-              {appLocale.nextQuestionBtn}
-            </button>
-          </div>
-          )}
-        </div>
         )}
       {endQuiz && showDefaultResultState && customResultPage === undefined
-          && renderResult()}
+        && renderResult()}
       {endQuiz && !showDefaultResultState && customResultPage !== undefined
-          && customResultPage(questionSummary)}
+        && customResultPage(questionSummary)}
     </div>
   );
-};
+}
 
 export default Core;
